@@ -1,0 +1,481 @@
+.topBar {
+    height: 45px;
+    background: #060606;
+}
+
+.barCont {
+    width: 1200px;
+    line-height: 45px;
+    margin: 0 auto;
+}
+
+.Crumbs {
+    padding-left: 25px;
+    background: url(../images/map.png) 0px no-repeat;
+    color: #fff;
+}
+
+.Crumbs a {
+    color: #fff;
+}
+
+.Crumbs a:hover {
+    color: red;
+}
+
+.share {
+    color: #fff;
+    line-height: 45px;
+}
+
+.share img {
+    margin-right: 10px;
+    float: right;
+    margin-top: 17px;
+}
+
+.navCont {
+    height: 60px;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+.navContBox {
+    width: 1200px;
+    line-height: 60px;
+    margin: 0 auto;
+}
+
+.mg1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.center {
+    padding-bottom: 100px;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    margin-top: 10px;
+}
+
+.menu ul li {
+    float: left;
+    margin-left: 30px;
+}
+
+.menu ul li a {
+    display: block;
+}
+
+.menu ul li:hover {
+    border-bottom: 1px solid red;
+}
+
+.sec {
+    position: relative;
+    float: right;
+}
+
+.sec input {
+    width: 196px;
+    height: 25px;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+
+.sec img {
+    position: absolute;
+    right: 10px;
+    top: 22px;
+    cursor: pointer;
+}
+
+.AdtImg {
+    margin: 20px 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.contL {
+    width: 795px;
+    float: left;
+}
+
+.conter {
+    position: relative;
+    width: 100%;
+}
+
+.contR {
+    width: 380px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-bottom: 100px;
+}
+
+.contRaCtive {
+    position: fixed;
+    top: 20px;
+}
+
+.newFlash {
+    height: 36px;
+    line-height: 36px;
+    background: #e4e4e4;
+}
+
+.newFlash span {
+    width: 30px;
+    height: 17px;
+    line-height: 17px;
+    color: #fff;
+    background: #f4230a;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.newFlashList a {
+    margin-left: 20px;
+    color: #6c6c6c;
+}
+
+.newFlashList a:hover {
+    color: red;
+}
+
+.newList {
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    margin-top: 10px;
+    padding: 13px;
+}
+
+.newListItem {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 20px 0;
+    position: relative;
+}
+
+.roofsImg {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    display: none;
+}
+
+.newsImg {
+    width: 180px;
+    overflow: hidden;
+    margin-right: 35px;
+}
+
+.newsTtile {
+    color: #2b2b2b;
+    font-weight: bold;
+}
+
+.newsTtile:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.newsTime {
+    color: #b0b0b0;
+    font-size: 12px;
+    padding-left: 25px;
+    background: url(../images/tiem.png) 5px no-repeat;
+    margin-top: 10px;
+}
+
+.newsTxt {
+    color: #979797;
+    margin-top: 20px;
+    height: 45px;
+    overflow: hidden;
+}
+
+.newsTxt:hover,
+.reListCont:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.recommend {
+    background: #fff;
+    margin-top: 25px;
+    padding-top: 20px;
+}
+
+.recommendTitle {
+    border-left: 5px solid #ff0000;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.reListItem {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 25px;
+}
+
+.reListItmeTitle {
+    font-weight: bold;
+}
+
+.reListCont {
+    margin-top: 20px;
+    color: #979797;
+}
+
+.focusing {
+    margin-top: 20px;
+    background: #fff;
+    padding: 20px;
+}
+
+.bigImg {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.bigImg img {
+    width: 100%;
+}
+
+.focusingImg {
+    width: 135px;
+    margin-right: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.focusingCont p {
+    font-weight: bold;
+}
+
+.focusingCont p:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.focusingCont span {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.focusingItem {
+    margin-top: 20px;
+}
+
+.emailUrl {
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    height: 40px;
+    line-height: 40px;
+}
+
+.emailUrl p.emailImg {
+    background: url(../images/email.png) 10px no-repeat;
+    padding-left: 40px;
+    border-right: 1px solid #e7e7e7;
+}
+
+.emailUrl span {
+    padding: 0 20px;
+}
+
+.content {
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    padding: 40px 0;
+}
+
+.contentTxt {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 0 40px;
+}
+
+.contentTxt p.time {
+    color: #b0b0b0;
+    font-size: 12px;
+    padding-left: 25px;
+    background: url(../images/tiem.png) 5px no-repeat;
+}
+
+.contentTxt h2 {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.contentTxt p {
+    margin-top: 30px;
+}
+
+.contentTxt h3.source {
+    margin: 30px 0;
+    background: url(../images/source.jpg) 5px no-repeat;
+    padding-left: 40px;
+    color: #9a9a9a;
+}
+
+.GraspUserTitle {
+    margin-top: 30px;
+}
+
+.GraspUserTitle p {
+    border-left: 5px solid #ff3a05;
+    padding-left: 40px;
+}
+
+.GraspUserTitle span {
+    padding-right: 40px;
+    color: #00bbea;
+    cursor: pointer;
+}
+
+.GraspUserCont {
+    padding: 40px 10px;
+}
+
+.GraspUserCont ul li {
+    width: 157px;
+    height: 42px;
+    line-height: 42px;
+    float: left;
+    text-align: center;
+    color: #fff;
+    background: #ededed;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.GraspUserCont ul li a {
+    display: block;
+}
+
+.GraspUserCont ul li:hover {
+    background: #00bbea;
+}
+
+.GraspUserCont ul li:hover a {
+    color: #fff;
+}
+
+.aboutUs {
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    margin-top: 30px;
+}
+
+.aboutUs h2 {
+    padding-left: 40px;
+    border-left: 5px solid #ff3a05;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.aboutUs p {
+    margin-bottom: 80px;
+    margin-top: 20px;
+    padding: 0 45px;
+}
+
+.echarts {
+    height: 160px;
+    background: #fff;
+    padding: 0 20px;
+}
+
+.echarts ul li img {
+    width: 100%;
+}
+
+.title li {
+    display: none;
+}
+
+.wrap {
+    width: 100px;
+    padding-left: 15px;
+    border-left: 1px dotted #ccc;
+}
+
+.wrap div {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #2a8ec6;
+    color: #a9d2e8;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.wrap div.active {
+    position: relative;
+    background: #c60000;
+    color: #f4cccc;
+}
+
+.wrap div.active::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin: -4px 0 0 -4px;
+    background: #c60000;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.title li.ho {
+    display: block;
+}
+
+.fdsLink ul li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+}
+
+.Error {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.Error h1 {
+    font-size: 120px;
+    margin-top: 200px;
+}
+
+.Error p {
+    margin-top: 80px;
+    font-size: 18px;
+}
+
+.Error p span {
+    color: red;
+}
+
+.Error p em {
+    font-style: normal;
+}
+
+.Error p a {
+    text-decoration: underline;
+}

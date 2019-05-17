@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script>
+        window.onload = function() {
+            // $(".Error p em").html(t);
+            var cont = 3;
+            setInterval(function() {
+                if (cont >= 1) {
+                    $(".Error p em").html(cont--);
+                } else {
+                    window.location.href = "index.html";
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="topBar">
+            <div class="barCont box">
+                <div class="boxL Crumbs">全球证券_中国证券资讯门户网站 > <a href="#">美股</a> > <a href="#">正文</a></div>
+                <div class="share clearfix">分享到：
+                    <a href="javascript:;"><img src="./images/weibo.png"></a>
+                    <a href="javascript:;"><img src="./images/qq.png"></a>
+                    <a href="javascript:;"><img src="./images/weixin.png"></a>
+                </div>
+            </div>
+        </div>
+        <div class="navCont">
+            <div class="navContBox clearfix">
+                <div class="logo">
+                    <a href="javascript:;"><img src="./images/logo.png"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="javascript:;">首页</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">财经</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">A股</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">美股</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">港股</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">新股</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">科创版</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">基金</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">期货</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">黄金</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">区块链</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">债券</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">外汇</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sec"><input type="text" placeholder="热搜：2019降准时间"><img src="./images/sec.png"></div>
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <div class="centerCont mg1200 clearfix">
+            <div class="Error">
+                <h1>ERROR</h1>
+                <p>咦？ 我<span>迷路了！</span> <em>3</em>秒后自动<a href="index.html">回家</a>....</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
