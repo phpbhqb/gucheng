@@ -1,1 +1,1 @@
-document.write("");
+document.write("<option value=\'1\' style=\'background:#99C4E3\'>|-财经</option>");

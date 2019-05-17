@@ -3,4 +3,4 @@ if(!defined('InEmpireCMS'))
 {
 	exit();
 }
-?>您还未添加栏目,<br><a href='#ecms' onclick=goaddclass()><u><b>点击这里</b></u></a>进行添加操作
+?><table border=0 cellspacing=0 cellpadding=0><tr><td id="pr1" class="file1" onclick=""><a onclick=tourl(0,1) onmouseout=chft(this,0,1) onmouseover=chft(this,1,1) oncontextmenu=ShRM(this,0,1,'',1)>财经</a></td></tr></table>
