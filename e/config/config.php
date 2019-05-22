@@ -7,12 +7,12 @@ define('EmpireCMSConfig',TRUE);
 $ecms_config=array();
 
 //数据库设置
-$ecms_config['db']['usedb']='mysql';	//数据库类型
+$ecms_config['db']['usedb']='mysqli';	//数据库类型
 $ecms_config['db']['dbver']='5.0';	//数据库版本
 $ecms_config['db']['dbserver']='localhost';	//数据库登录地址
 $ecms_config['db']['dbport']='';	//端口，不填为按默认
 $ecms_config['db']['dbusername']='root';	//数据库用户名
-$ecms_config['db']['dbpassword']='';	//数据库密码
+$ecms_config['db']['dbpassword']='yaoweibo';	//数据库密码
 $ecms_config['db']['dbname']='gucheng';	//数据库名
 $ecms_config['db']['setchar']='utf8';	//设置默认编码
 $ecms_config['db']['dbchar']='utf8';	//数据库默认编码
@@ -34,7 +34,7 @@ $ecms_config['esafe']['openeditdttemp']=1;	//开启后台在线修改动态模�
 $ecms_config['epassport']['open']=0;	//是否开启易通行系统(1为开启，0为关闭)
 
 //其它配置
-$ecms_config['sets']['webdebug']=0;	//是否显示PHP错误提示(0为不显示,1为显示)
+$ecms_config['sets']['webdebug']=1;	//是否显示PHP错误提示(0为不显示,1为显示)
 $ecms_config['sets']['timezone']='PRC';	//时区
 $ecms_config['sets']['getiptype']=0;	//获取IP地址类型(0为自动,1为REMOTE_ADDR,2为HTTP_X_FORWARDED_FOR,3为HTTP_CLIENT_IP)
 $ecms_config['sets']['ecmscachepath']=ECMS_PATH.'ecachefiles/';	//动态页面缓存文件存放目录
@@ -144,9 +144,9 @@ $ecms_config['sets']['realplayertype']=',.rm,.ra,.rmvb,.mp4,.mov,.avi,.wav,.ram,
 //-------EmpireCMS.Public.Cache-------
 
 //------------e_public
-$public_r=array('sitename'=>'帝国网站管理系统',
-'newsurl'=>'/gucheng/',
-'filetype'=>'|.gif|.jpg|.swf|.rar|.zip|.mp3|.wmv|.txt|.doc|',
+$public_r=array('sitename'=>'全球证券_中国证券资讯门户网站 ',
+'newsurl'=>'/',
+'filetype'=>'|.gif|.jpg|.swf|.rar|.zip|.mp3|.wmv|.txt|.doc|.png|',
 'filesize'=>2048,
 'relistnum'=>8,
 'renewsnum'=>100,
@@ -168,7 +168,7 @@ $public_r=array('sitename'=>'帝国网站管理系统',
 'exittime'=>40,
 'smalltextlen'=>160,
 'defaultgroupid'=>1,
-'fileurl'=>'/gucheng/d/file/',
+'fileurl'=>'/d/file/',
 'install'=>0,
 'phpmode'=>0,
 'dorepnum'=>300,
@@ -256,7 +256,7 @@ $public_r=array('sitename'=>'帝国网站管理系统',
 'gbkey_ok'=>0,
 'fbkey_ok'=>0,
 'newaddinfotime'=>0,
-'classnavs'=>'<a href=\"/gucheng/caijing/\">财经</a>',
+'classnavs'=>'<a href=\"/caijing/\">财经</a>&nbsp;|&nbsp;<a href=\"/meigu/\">美股</a>',
 'adminstyle'=>',1,2,',
 'docnewsnum'=>300,
 'openschall'=>0,
@@ -266,7 +266,7 @@ $public_r=array('sitename'=>'帝国网站管理系统',
 'schallnum'=>20,
 'schallpagenum'=>10,
 'dtcanbq'=>1,
-'dtcachetime'=>43200,
+'dtcachetime'=>0,
 'repkeynum'=>0,
 'regacttype'=>0,
 'opengetpass'=>0,
@@ -372,7 +372,7 @@ $public_r=array('sitename'=>'帝国网站管理系统',
 'qtoqjf'=>'',
 'ctimeaddre'=>0,
 'ctimeqaddre'=>0,
-'deftempid'=>0);
+'deftempid'=>0,'add_search_title'=>'2019降准时间深色二','add_law_email'=>'ougao@xuanxun.comqqq');
 //------------e_public
 
 //moreports
@@ -426,21 +426,21 @@ $emod_r[1]=Array('mid'=>1,
 'defaulttb'=>1,
 'datatbs'=>',1,',
 'deftb'=>'1',
-'enter'=>',title,ftitle,special.field,newstime,titlepic,smalltext,writer,befrom,newstext,',
-'qenter'=>',title,ftitle,special.field,titlepic,smalltext,writer,befrom,newstext,',
-'listtempf'=>',title,ftitle,newstime,titlepic,smalltext,diggtop,',
-'tempf'=>',title,ftitle,newstime,titlepic,smalltext,writer,befrom,newstext,diggtop,',
+'enter'=>',title,ftitle,titlepic_alt,special.field,newstime,titlepic,smalltext,writer,befrom,newstext,',
+'qenter'=>',title,ftitle,titlepic_alt,special.field,titlepic,smalltext,writer,befrom,newstext,',
+'listtempf'=>',title,ftitle,titlepic_alt,newstime,titlepic,smalltext,diggtop,',
+'tempf'=>',title,ftitle,titlepic_alt,newstime,titlepic,smalltext,writer,befrom,newstext,diggtop,',
 'mustqenterf'=>',title,newstext,',
 'listandf'=>'',
 'setandf'=>0,
 'searchvar'=>',title,smalltext,',
 'cj'=>',title,ftitle,newstime,titlepic,smalltext,writer,befrom,newstext,',
-'canaddf'=>',title,ftitle,newstime,titlepic,smalltext,writer,befrom,newstext,',
-'caneditf'=>',title,ftitle,newstime,titlepic,smalltext,writer,befrom,newstext,',
-'tbmainf'=>',title,titlepic,newstime,ftitle,smalltext,diggtop,',
+'canaddf'=>',title,ftitle,titlepic_alt,newstime,titlepic,smalltext,writer,befrom,newstext,',
+'caneditf'=>',title,ftitle,titlepic_alt,newstime,titlepic,smalltext,writer,befrom,newstext,',
+'tbmainf'=>',title,titlepic,newstime,ftitle,smalltext,diggtop,titlepic_alt,',
 'tbdataf'=>',writer,befrom,newstext,',
 'tobrf'=>',smalltext,newstext,',
-'dohtmlf'=>',ftitle,smalltext,writer,befrom,newstext,diggtop,',
+'dohtmlf'=>',ftitle,smalltext,writer,befrom,newstext,diggtop,titlepic_alt,',
 'checkboxf'=>',',
 'savetxtf'=>'',
 'editorf'=>',newstext,',
@@ -459,7 +459,7 @@ $emod_r[1]=Array('mid'=>1,
 'qeditdofunf'=>'||',
 'definfovoteid'=>0,
 'orderf'=>'',
-'sonclass'=>'|34|35|36|37|',
+'sonclass'=>'|1|2|',
 'maddfun'=>'',
 'meditfun'=>'',
 'qmaddfun'=>'',

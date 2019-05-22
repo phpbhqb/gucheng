@@ -3,261 +3,180 @@ if(!defined('InEmpireCMS'))
 {
 	exit();
 }
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>帝国网站管理系统 - Powered by EmpireCMS</title>
-<meta name="keywords" content="帝国网站管理系统,EmpireCMS" />
-<meta name="description" content="　　帝国软件是一家专注于网络软件开发的科技公司，其主营产品“帝国网站管理系统(EmpireCMS)”是目前国内应用超高广泛的CMS程序。通过十多年的不断创新与完善，使系统集安全、稳定、强大、灵活于一身。目前EmpireCMS程序已经广泛应用在国内上百万家网站，覆盖国内数千万上网人群，并经过上千家知名网站的严格检测，被称为国内超高安全、超高稳定的开源CMS系统。" />
-<link href="/gucheng/skin/default/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/gucheng/skin/default/js/tabs.js"></script>
-</head>
-<body class="homepage">
-<!-- 页头 -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="top">
-<tr>
-<td>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="63%"> 
-<!-- 登录 -->
-<script>
-document.write('<script src="/gucheng/e/member/login/loginjs.php?t='+Math.random()+'"><'+'/script>');
-</script>
-</td>
-<td align="right">
-<a onclick="window.external.addFavorite(location.href,document.title)" href="#ecms">加入收藏</a> | <a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('/gucheng/')" href="#ecms">设为首页</a> | <a href="/gucheng/e/member/cp/">会员中心</a> | <a href="/gucheng/e/DoInfo/">我要投稿</a> | <a href="/gucheng/e/web/?type=rss2&classid=0" target="_blank">RSS<img src="/gucheng/skin/default/images/rss.gif" border="0" hspace="2" /></a>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<table width="100%" border="0" cellpadding="0" cellspacing="10">
-<tr valign="middle">
-<td width="240" align="center"><a href="/gucheng/"><img src="/gucheng/skin/default/images/logo.gif" width="200" height="65" border="0" /></a></td>
-<td align="center"><a href="http://www.phome.net/OpenSource/" target="_blank"><img src="/gucheng/skin/default/images/opensource.gif" width="100%" height="70" border="0" /></a></td>
-</tr>
-</table>
-<!-- 导航tab选项卡 -->
-<table width="920" border="0" align="center" cellpadding="0" cellspacing="0" class="nav">
-  <tr> 
-    <td class="nav_global"><ul>
-        <li class="curr" id="tabnav_btn_0" onmouseover="tabit(this)"><a href="/gucheng/">首页</a></li>
-        <? @sys_ShowClassByTemp('0',12,0,0);?> </ul></td>
-  </tr>
-</table>
-<table width="100%" border="0" cellspacing="10" cellpadding="0">
-<tr valign="top">
-<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
-<tr>
-<td><strong>最后更新</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
-<tr>
-<td><ul>
-<? @sys_GetEcmsInfo(0,11,28,0,3,2,0);?>
-</ul>
-<? @sys_GetEcmsInfo(0,1,18,0,5,5,1);?></td>
-</tr>
-</table></td>
-<td class="content"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-          <td> 
-            <!-- 焦点图片，调用默认模型带标题图片的头条信息 -->
-            <? @sys_FlashPixpic(0,3,450,250,0,0,13,3);?> </td>
-</tr>
-</table>
-<!-- 头条信息调用 -->
-<table width="100%" border="0" cellspacing="8" cellpadding="0" class="focus">
-<tr>
-<td><? @sys_GetEcmsInfo(0,1,50,0,13,8,0);?></td>
-</tr>
-<tr>
-<td align="center"><? @sys_GetEcmsInfo(0,'1,2',28,0,13,4,0);?></td>
-</tr>
-</table></td>
-<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
-<tr>
-<td><strong>推荐资讯</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box no_doc">
-<tr>
-<td><ul>
-<? @sys_GetEcmsInfo(0,5,28,0,5,3,0);?>
-</ul></td>
-</tr>
-</table></td>
-</tr>
-</table>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-<tr>
-    <td align="center" class="banner_ad"><a href="http://www.phome.net/ebak2008/" target="_blank" title="马上免费下载"><img src="/gucheng/skin/default/images/empirebak.gif" width="920" height="90" border="0" /></a></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="10" cellpadding="0">
-<tr valign="top">
-<td width="230" class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
-<tr>
-<td><strong><a href="/gucheng/info/">分类信息</a></strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
-<tr>
-<td><ul>
-<? @sys_GetEcmsInfo('info',10,28,0,18,2,0);?>
-</ul></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
-<tr>
-<td><strong><a href="/gucheng/download/">下载更新</a></strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box no_doc">
-<tr>
-<td><ul>
-              <? @sys_GetEcmsInfo('download',4,26,0,18,9,0);?> 
-            </ul></td>
-</tr>
-</table></td>
-<td class="content"><!-- tab选项卡，默认为点击变化，如需改为移动，将onmouseover改为onclick -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbtn1">
-<tr>
-<td class="tbtncon"><ul><li class="curr" id="tab1_btn_0" onmouseover="etabit(this)">新闻</li><li id="tab1_btn_1" onmouseover="etabit(this)">图片</li><li id="tab1_btn_2" onmouseover="etabit(this)">影视</li><li id="tab1_btn_3" onmouseover="etabit(this)">FLASH</li></ul></td>
-</tr>
-<tr>
-<td class="picList"><div id="tab1_div_0"> <? @sys_GetClassNewsPic('news',3,6,128,90,1,20,20);?> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全球证券_中国证券资讯门户网站 </title>
+    <meta name="keywords" content="帝国网站管理系统,EmpireCMS" />
+    <meta name="description" content="　　帝国软件是一家专注于网络软件开发的科技公司，其主营产品“帝国网站管理系统(EmpireCMS)”是目前国内应用超高广泛的CMS程序。通过十多年的不断创新与完善，使系统集安全、稳定、强大、灵活于一身。目前EmpireCMS程序已经广泛应用在国内上百万家网站，覆盖国内数千万上网人群，并经过上千家知名网站的严格检测，被称为国内超高安全、超高稳定的开源CMS系统。" />
+    <link rel="stylesheet" href="/skin/stock/css/css.css">
+    <link rel="stylesheet" href="/skin/stock/css/style.css">
+    <link rel="stylesheet" href="/skin/stock/css/zhishu.css">
+    <script type="text/javascript">
+        var newsurl='/';
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            window.location.href = "/e/wap/";
+        }
+    </script>
+</head> 
+
+<body>
+    <div class="nav">
+        <div class="topBar">
+            <div class="barCont box">
+                <div class="boxL Crumbs">全球证券_中国证券资讯门户网站 </div>
+                <div class="bdsharebuttonbox share"><label style="float:left;">分享到：</label><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin-top:13px;"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友" style="margin-top:13px;"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin-top:13px;"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
             </div>
-            <div id="tab1_div_1" style="display:none;"> <? @sys_GetClassNewsPic('photo',3,6,128,90,1,20,20);?> 
+        </div>
+         <div class="navCont">
+            <div class="navContBox clearfix">
+                <div class="logo"><a href="/"><img src="/skin/stock/images/logo.png"></a></div>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="/">首页</a>
+                        </li>
+                         <? @sys_ShowClassByTemp('0',12,0,0);?>
+                    </ul>
+                </div>
+                <div class="sec"><input type="text" placeholder="热搜：<?=$public_r['add_search_title']?>" id="search_key" value="<?php if(isset($_GET['key'])) echo ehtmlspecialchars($_GET['key']); ?>"><img src="/skin/stock/images/sec.png"></div>
             </div>
-            <div id="tab1_div_2" style="display:none;"> <? @sys_GetClassNewsPic('movie',3,6,128,90,1,20,20);?> 
+        </div>
+    </div>
+    <div class="center">
+        <div class="centerCont mg1200 clearfix">
+            <div class="AdtImg imgAll"><script src="/d/js/acmsd/thea1.js"></script></div>
+            <div class="conter">
+                <div class="contL">
+                    <div class="newFlash box">
+                        <span>快讯</span>
+                        <div class="newFlashList boxL">
+                            <?php
+$bqno=0;
+$ecms_bq_sql=sys_ReturnEcmsLoopBq("select fname,url from {$dbtbpre}enewsfocus where classid=1 order by fsort",0,24,0);
+if($ecms_bq_sql){
+while($bqr=$empire->fetch($ecms_bq_sql)){
+$bqsr=sys_ReturnEcmsLoopStext($bqr);
+$bqno++;
+?>
+                                <a href="<?=$bqr['url']?>"><?=$bqr['fname']?></a>
+                            <?php
+}
+}
+?>
+                        </div>
+                    </div>
+                    <div class="newList">
+                    </div>
+                    <div class="more_list_page" start="0" cid="0" style="display:none">
+                    </div>
+                </div>
+                <div class="contR">
+                    <!--<div class="echarts box">
+                        <ul id="title" class="title boxL">
+                            <li class="ho"><img src="./images/echarts.jpg"></li>
+                            <li><img src="./images/echarts.jpg"></li>
+                            <li><img src="./images/echarts.jpg"></li>
+                        </ul>
+                        <div id="wrap" class="wrap">
+                            <div class="active">上证指数</div>
+                            <div>深证指数</div>
+                            <div>创业指数</div>
+                        </div>
+                    </div>-->
+
+                    <div class="hqpic"><div class="hq_data" id="hq_data">
+<b>2882.3<em>-73.41&nbsp;&nbsp;-2.48%</em></b>
+<a href="http://hq.gucheng.com/SH000001/" id="hqCanvas" target="_blank"></a>
+</div>
+<ul id="stockUl"><li><a href="http://hq.gucheng.com/SH000001/" target="_blank" class="on">上证指数</a></li><li><a href="http://hq.gucheng.com/SZ399001/" target="_blank">深证成指</a></li><li><a href="http://hq.gucheng.com/SZ399006/" target="_blank">创业板指</a></li></ul>
+</div>
+
+
+
+                    <div class="recommend">
+                        <div class="recommendTitle">推荐阅读</div>
+                        <?php
+$bqno=0;
+$ecms_bq_sql=sys_ReturnEcmsLoopBq("select title,titleurl,smalltext from {$dbtbpre}ecms_news where isgood=1 order by newstime desc limit 6",0,24,0);
+if($ecms_bq_sql){
+while($bqr=$empire->fetch($ecms_bq_sql)){
+$bqsr=sys_ReturnEcmsLoopStext($bqr);
+$bqno++;
+?>
+                            <div class="reListItem">
+                                <div class="reListItmeTitle"><a href="<?=$bqr['titleurl']?>"><?=$bqr['title']?></a></div>
+                                <div class="reListCont">
+                                    <?=esub($bqr['smalltext'],80)?>
+                                </div>
+                            </div>
+                        <?php
+}
+}
+?>
+                    </div>
+                    <div class="focusing">
+                        <div class="bigImg imgAll"><script src="/d/js/acmsd/thea2.js"></script></div>
+
+                        <?php
+$bqno=0;
+$ecms_bq_sql=sys_ReturnEcmsLoopBq("select title,titleurl,titlepic,newstime,titlepic_alt from {$dbtbpre}ecms_news where isgood=2 order by newstime desc limit 3",0,24,0);
+if($ecms_bq_sql){
+while($bqr=$empire->fetch($ecms_bq_sql)){
+$bqsr=sys_ReturnEcmsLoopStext($bqr);
+$bqno++;
+?>
+                             <div class="focusingItem box">
+                            <div class="focusingImg imgAll"><a href="<?=$bqr['titleurl']?>"><img src="<?=$bqr['titlepic']?>" width="135px" height="75px" alt="<?=$bqr['titlepic_alt']?>"></a></div>
+                            <div class="focusingCont boxL">
+                                <p><a href="<?=$bqr['titleurl']?>"><?=$bqr['title']?></a></p>
+                                <span><?=date('Y-m-d H:i',$bqr['newstime'])?></span>
+                            </div>
+                        </div>
+                        <?php
+}
+}
+?>
+                    </div>
+                    <div class="emailUrl box">
+                        <p class="boxL emailImg"><?=$public_r['add_law_email']?></p>
+                        <span><a href="javascript:;">法律声明</a></span>
+                    </div>
+                    <div class="recommend">
+                        <div class="recommendTitle">友情链接</div>
+                        <div class="fdsLink clearfix">
+                            <ul>
+                                <?php
+$bqno=0;
+$ecms_bq_sql=sys_ReturnEcmsLoopBq("select lname,lurl from {$dbtbpre}enewslink order by myorder",0,24,0);
+if($ecms_bq_sql){
+while($bqr=$empire->fetch($ecms_bq_sql)){
+$bqsr=sys_ReturnEcmsLoopStext($bqr);
+$bqno++;
+?>
+                                    <li><a href="<?=$bqr['lurl']?>"><?=$bqr['lname']?></a></li>
+                                <?php
+}
+}
+?>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
-            <div id="tab1_div_3" style="display:none;"> <? @sys_GetClassNewsPic('flash',3,6,128,90,1,20,20);?> 
-            </div></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
-<tr>
-<td><strong>精彩专题</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="box">
-<tr valign="top">
-<td width="50%"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="news_title">
-<tr>
-                <td><? @sys_GetEcmsInfo(34,1,20,0,2,8,0);?> </td>
-</tr>
-</table>
-<ul>
-              <? @sys_GetEcmsInfo(34,7,26,0,0,2,0);?> 
-            </ul></td>
-<td width="50%"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="news_title">
-<tr>
-                <td><? @sys_GetEcmsInfo(35,1,20,0,2,8,0);?></td>
-</tr>
-</table>
-<ul>
-              <? @sys_GetEcmsInfo(35,7,26,0,0,2,0);?> 
-            </ul></td>
-</tr>
-</table></td>
-<td width="240" class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
-<tr>
-<td><strong>热门点击</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
-<tr>
-<td><ol class="rank">
-<? @sys_GetEcmsInfo(0,10,28,0,4,10,0);?> 
-</ol></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
-<tr>
-<td><strong>热门评论文章</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
-<tr>
-<td><ul>
-<? @sys_GetEcmsInfo(0,13,28,0,10,2,0);?> 
-</ul></td>
-</tr>
-</table></td>
-</tr>
-</table>
-<!-- 友情链接 -->
-<table width="100%" border="0" cellspacing="10" cellpadding="0" class="links">
-<tr>
-<td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E9F2FB" class="title">
-<tr>
-<td><strong>友情链接</strong></td>
-          <td align="right">&nbsp;</td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="10" cellpadding="0" class="box">
-<tr>
-          <td>
-            <!-- 文字链接 -->
-            <? @sys_GetSitelink(9,18,2,0,1);?> 
-            <hr width="100%" size="1" noshade="noshade" />
-            <!-- logo链接 -->
-            <? @sys_GetSitelink(9,18,1,0,1);?></td>
-</tr>
-</table></td>
-</tr>
-</table>
-<!-- 页脚 -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr>
-<td align="center" class="search">
-<form action="/gucheng/e/search/index.php" method="post" name="searchform" id="searchform">
-<table border="0" cellspacing="6" cellpadding="0">
-<tr>
-<td><strong>站内搜索：</strong>
-<input name="keyboard" type="text" size="32" id="keyboard" class="inputText" />
-<input type="hidden" name="show" value="title" />
-<input type="hidden" name="tempid" value="1" />
-<select name="tbname">
-<option value="news">新闻</option>
-<option value="download">下载</option>
-<option value="photo">图库</option>
-<option value="flash">FLASH</option>
-<option value="movie">电影</option>
-<option value="shop">商品</option>
-<option value="article">文章</option>
-<option value="info">分类信息</option>
-</select>
-</td>
-<td><input type="image" class="inputSub" src="/gucheng/skin/default/images/search.gif" />
-</td>
-<td><a href="/gucheng/search/" target="_blank">高级搜索</a></td>
-</tr>
-</table>
-</form>
-</td>
-</tr>
-<tr>
-<td>
-	<table width="100%" border="0" cellpadding="0" cellspacing="4" class="copyright">
-        <tr> 
-          <td align="center"><a href="/gucheng/">网站首页</a> | <a href="#">关于我们</a> 
-            | <a href="#">服务条款</a> | <a href="#">广告服务</a> | <a href="#">联系我们</a> 
-            | <a href="#">网站地图</a> | <a href="#">免责声明</a> | <a href="/gucheng/e/wap/" target="_blank">WAP</a></td>
-        </tr>
-        <tr> 
-          <td align="center">Powered by <strong><a href="http://www.phome.net" target="_blank">EmpireCMS</a></strong> 
-            <strong><font color="#FF9900">7.5</font></strong>&nbsp; &copy; 2002-2018 
-            <a href="http://www.digod.com" target="_blank">EmpireSoft Inc.</a></td>
-        </tr>
-	</table>
-</td>
-</tr>
-</table>
+        </div>
+    </div>
+
+    <script src="/skin/stock/js/jquery-3.4.1.min.js"></script>
+    <script src="/skin/stock/js/pIndex.js"></script>
 </body>
+
 </html>

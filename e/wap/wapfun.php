@@ -608,7 +608,6 @@ function ewap_UrlCsReturnStyle($ecms=0,$style=0){
 
 
 $pr=$empire->fetch1("select sitekey,siteintro,wapopen,wapdefstyle,wapshowmid,waplistnum,wapsubtitle,wapshowdate,wapchar,wapchstyle from {$dbtbpre}enewspublic limit 1");
-
 //导入编码文件
 $iconv='';
 if($ecms_config['sets']['pagechar']!='utf-8')

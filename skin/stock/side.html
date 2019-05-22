@@ -1,0 +1,64 @@
+<div class="contR">
+                    <!--<div class="echarts box">
+                        <ul id="title" class="title boxL">
+                            <li class="ho"><img src="./images/echarts.jpg"></li>
+                            <li><img src="./images/echarts.jpg"></li>
+                            <li><img src="./images/echarts.jpg"></li>
+                        </ul>
+                        <div id="wrap" class="wrap">
+                            <div class="active">上证指数</div>
+                            <div>深证指数</div>
+                            <div>创业指数</div>
+                        </div>
+                    </div>-->
+
+                    <div class="hqpic"><div class="hq_data" id="hq_data">
+<b>2882.3<em>-73.41&nbsp;&nbsp;-2.48%</em></b>
+<a href="http://hq.gucheng.com/SH000001/" id="hqCanvas" target="_blank"></a>
+</div>
+<ul id="stockUl"><li><a href="http://hq.gucheng.com/SH000001/" target="_blank" class="on">上证指数</a></li><li><a href="http://hq.gucheng.com/SZ399001/" target="_blank">深证成指</a></li><li><a href="http://hq.gucheng.com/SZ399006/" target="_blank">创业板指</a></li></ul>
+</div>
+
+
+
+                    <div class="recommend">
+                        <div class="recommendTitle">推荐阅读</div>
+                        [e:loop={"select title,titleurl,smalltext from {$dbtbpre}ecms_news where isgood=1 order by newstime desc limit 6",0,24,0}]
+                            <div class="reListItem">
+                                <div class="reListItmeTitle"><a href="<?=$bqr['titleurl']?>"><?=$bqr['title']?></a></div>
+                                <div class="reListCont">
+                                    <?=esub($bqr['smalltext'],80)?>
+                                </div>
+                            </div>
+                        [/e:loop]
+                    </div>
+                    <div class="focusing">
+                        <div class="bigImg imgAll"><script src="/d/js/acmsd/thea2.js"></script></div>
+
+                        [e:loop={"select title,titleurl,titlepic,newstime,titlepic_alt from {$dbtbpre}ecms_news where isgood=2 order by newstime desc limit 3",0,24,0}]
+                             <div class="focusingItem box">
+                            <div class="focusingImg imgAll"><a href="<?=$bqr['titleurl']?>"><img src="<?=$bqr['titlepic']?>" width="135px" height="75px" alt="<?=$bqr['titlepic_alt']?>"></a></div>
+                            <div class="focusingCont boxL">
+                                <p><a href="<?=$bqr['titleurl']?>"><?=$bqr['title']?></a></p>
+                                <span><?=date('Y-m-d H:i',$bqr['newstime'])?></span>
+                            </div>
+                        </div>
+                        [/e:loop]
+                    </div>
+                    <div class="emailUrl box">
+                        <p class="boxL emailImg"><?=$public_r['add_law_email']?></p>
+                        <span><a href="javascript:;">法律声明</a></span>
+                    </div>
+                    <div class="recommend">
+                        <div class="recommendTitle">友情链接</div>
+                        <div class="fdsLink clearfix">
+                            <ul>
+                                [e:loop={"select lname,lurl from {$dbtbpre}enewslink order by myorder",0,24,0}]
+                                    <li><a href="<?=$bqr['lurl']?>"><?=$bqr['lname']?></a></li>
+                                [/e:loop]
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>

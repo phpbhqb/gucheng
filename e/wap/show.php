@@ -10,25 +10,14 @@ $usewapstyle='';
 $wapstyle=0;
 $pr=array();
 require("wapfun.php");
-$classid=(int)$_GET['classid'];
 $id=(int)$_GET['id'];
-if(!$classid||!$class_r[$classid]['tbname']||!$id||InfoIsInTable($class_r[$classid]['tbname']))
+
+$r=$empire->fetch1("select * from {$dbtbpre}ecms_news where id='$id' limit 1");
+if(!$r['id'])
 {
-	DoWapShowMsg('您来自的链接不存在','index.php?style='.$wapstyle);
+	DoWapShowMsg('您来自的链接不存在',$public_r['news_url'].'e/wap/');
 }
-$cpage=(int)$_GET['cpage'];
-$cid=(int)$_GET['cid'];
-$bclassid=(int)$_GET['bclassid'];
-if(empty($cid))
-{
-	$cid=$classid;
-}
-$listurl="list.php?classid=".$cid."&amp;style=".$wapstyle."&amp;bclassid=".$bclassid."&amp;page=".$cpage;
-$r=$empire->fetch1("select * from {$dbtbpre}ecms_".$class_r[$classid]['tbname']." where id='$id' limit 1");
-if(!$r['id']||$classid!=$r[classid])
-{
-	DoWapShowMsg('您来自的链接不存在',$listurl);
-}
+$classid=$r['classid'];
 $GLOBALS['navclassid']=$classid;
 if($r['groupid']||$class_r[$classid]['cgtoinfo'])
 {

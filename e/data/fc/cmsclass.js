@@ -1,1 +1,1 @@
-document.write("<option value=\'1\' style=\'background:#99C4E3\'>|-财经</option>");
+document.write("<option value=\'1\' style=\'background:#99C4E3\'>|-财经</option><option value=\'2\' style=\'background:#99C4E3\'>|-美股</option>");

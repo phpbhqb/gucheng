@@ -1,0 +1,14 @@
+ <div class="navCont">
+            <div class="navContBox clearfix">
+                <div class="logo"><a href="[!--news.url--]"><img src="[!--news.url--]skin/stock/images/logo.png"></a></div>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="[!--news.url--]">首页</a>
+                        </li>
+                         [showclasstemp]'0',12,0,0[/showclasstemp]
+                    </ul>
+                </div>
+                <div class="sec"><input type="text" placeholder="热搜：<?=$public_r['add_search_title']?>" id="search_key" value="<?php if(isset($_GET['key'])) echo ehtmlspecialchars($_GET['key']); ?>"><img src="[!--news.url--]skin/stock/images/sec.png"></div>
+            </div>
+        </div>

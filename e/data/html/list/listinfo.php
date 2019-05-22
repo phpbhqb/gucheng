@@ -231,7 +231,7 @@ function PushInfoToZt(form)
 		$st='';
 		if($r[istop])//置顶
 		{
-			$st.="<font color=red>[顶".$r[istop]."]</font>";
+			$st.="<font color=red>栏目置顶</font>";
 		}
 		if($r[isgood])//推荐
 		{
@@ -367,15 +367,7 @@ function PushInfoToZt(form)
           <input type="submit" name="Submit11" value="归档" onClick="document.listform.enews.value='InfoToDoc';document.listform.doing.value='0';document.listform.action='ecmsinfo.php';">
           <select name="istop" id="select">
             <option value="0">不置顶</option>
-            <option value="1">一级置顶</option>
-            <option value="2">二级置顶</option>
-            <option value="3">三级置顶</option>
-            <option value="4">四级置顶</option>
-            <option value="5">五级置顶</option>
-            <option value="6">六级置顶</option>
-			<option value="7">七级置顶</option>
-			<option value="8">八级置顶</option>
-			<option value="9">九级置顶</option>
+            <option value="1">栏目置顶</option>
           </select>
           <input type="submit" name="Submit7" value="置顶" onClick="document.listform.enews.value='TopNews_all';document.listform.action='ecmsinfo.php';">
 		  <input type="submit" name="Submit7" value="修改时间" onClick="document.listform.enews.value='EditMoreInfoTime';document.listform.action='ecmsinfo.php';">

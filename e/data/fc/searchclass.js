@@ -1,1 +1,1 @@
-document.write("<option value=\'1\'>|-财经</option>");
+document.write("<option value=\'1\'>|-财经</option><option value=\'2\'>|-美股</option>");

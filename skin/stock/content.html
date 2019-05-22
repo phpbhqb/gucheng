@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[!--pagetitle--]</title>
+    <meta name="keywords" content="[!--pagekey--]" />
+    <meta name="description" content="[!--pagedes--]" />
+    <link rel="stylesheet" href="[!--news.url--]skin/stock/css/css.css">
+    <link rel="stylesheet" href="[!--news.url--]skin/stock/css/style.css">
+    <link rel="stylesheet" href="[!--news.url--]skin/stock/css/zhishu.css">
+    <script type="text/javascript">
+        var newsurl='[!--news.url--]';
+    </script>
+</head> 
+
+<body>
+    <div class="nav">
+        <div class="topBar">
+            <div class="barCont box">
+                <div class="boxL Crumbs"><?=$public_r['sitename']?> > <a href="<?=sys_ReturnBqClassname(array('classid'=>$GLOBALS['navclassid']),9)?>">[!--class.name--]</a> > <a href="[!--titleurl--]">[!--ftitle--]</a></div>
+                <div class="bdsharebuttonbox share"><label style="float:left;">分享到：</label><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin-top:13px;"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友" style="margin-top:13px;"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin-top:13px;"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            </div>
+        </div>
+        [!--temp.menu--]
+    </div>
+    <div class="center">
+        <div class="centerCont mg1200 clearfix">
+            <div class="AdtImg imgAll"><script src="/d/js/acmsd/thea1.js"></script></div>
+            <div class="conter">
+                <div class="contL">
+                    <div class="newFlash box">
+                        <span>快讯</span>
+                        <div class="newFlashList boxL">
+                            [e:loop={"select fname,url from {$dbtbpre}enewsfocus where classid=1 order by fsort",0,24,0}]
+                                <a href="<?=$bqr['url']?>"><?=$bqr['fname']?></a>
+                            [/e:loop]
+                        </div>
+                    </div>
+                     <div class="content">
+                        <div class="contentTxt">
+                            <h2>[!--title--]</h2>
+                            <p class="time">[!--newstime--]</p>
+                            [!--newstext--]
+                            <h3 class="source">此文章来源于[!--befrom--]</h3>
+                        </div>
+                        <div class="GraspUserTitle box">
+                            <p class="boxL">猜你喜欢</p>
+                            <span>更多可能你喜欢的内容</span>
+                        </div>
+                        <div class="GraspUserCont clearfix">
+                            <ul>
+                                [e:loop={"select ftitle,titleurl from {$dbtbpre}ecms_news where isgood=3 order by newstime desc limit 8",0,24,0}]
+                                <li><a href="<?=$bqr['titleurl']?>"><?=esub($bqr['ftitle'],20)?></a></li>
+                                [/e:loop]
+                            </ul>
+                        </div>
+                        <div class="newList">
+                        </div>
+                        <div class="more_list_page" start="0" cid="<?=$GLOBALS['navclassid']?>" order="2" style="display:none">
+                    </div>
+                    
+                </div>
+                [!--temp.sidebar--]
+
+            </div>
+        </div>
+    </div>
+    <script src="[!--news.url--]skin/stock/js/jquery-3.4.1.min.js"></script>
+    <script src="[!--news.url--]skin/stock/js/pIndex.js"></script>
+</body>
+
+</html>

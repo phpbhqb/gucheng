@@ -1,0 +1,1 @@
+document.write("<a href='http://www.baidu.com' target=_blank><img src='/d/file/p/2019/05-18/d5e640946c6e22ce02533f1502b7f643.jpg' border=0 width='340' height='190' alt=''></a>");

@@ -1,0 +1,14 @@
+.hqpic{float:left;width:302px;margin:3px 0;}
+.hqpic b{float:left;width:186px;margin:0px 0 0px 13px;height:36px;line-height:36px;font-size:18px;font-family:Arial,Helvetica,sans-serif;color:#399}
+.hqpic em{font-style:normal;font-size:9px; padding-left:5px;font-weight:normal;font-family:Verdana,Geneva,sans-serif}
+.hqpic .hq_data{float:left;width:198px;margin: 8px 2px;}
+.hqpic .hq_data a{margin:0 14px 14px 14px;float:left;width:168px;height:69px;border:1px solid #91bde1;display:inline}
+.hqpic .hq_data img{width:168px;height:69px;}
+.hq a{color:#fff}
+.hqpic ul{float:left;width:81px;border-left:1px dashed #CCC;height:130px;}
+.hqpic ul li{float:left;width:66px;text-align:center;margin:10px 0 0 15px;display:inline}
+.hqpic ul li a{display:block;padding:8px 4px;background:#298fc6;color:#a9d2e8}
+.hqpic ul li a:hover,.hqpic ul li a.on{background:#c60000;color:#f4cccc}
+.hq span{float:left;width:302px;height:21px;line-height:21px;padding-bottom:10px;font-weight:bold;text-align:right;color:#f90}
+.hqpic ul li a.on{position:relative}
+.hqpic ul li a.on:after{content:'';width:8px;height:8px;position:absolute;left:0;top:50%;margin:-4px 0 0 -4px;background:#c60000;transform:rotate(45deg);z-index:1

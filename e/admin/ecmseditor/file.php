@@ -108,8 +108,12 @@ elseif($modtype==7)//碎片
 	$query="select fileid,filename,filesize,path,filetime,no,fpath from {$dbtbpre}enewsfile_other where modtype=7 and type='$type'";
 	$totalquery="select count(*) as total from {$dbtbpre}enewsfile_other where modtype=7 and type='$type'";
 	$tranname='碎片';
-}
-else//信息
+}elseif($modtype==8)//轮播图
+{
+	$query="select fileid,filename,filesize,path,filetime,no,fpath from {$dbtbpre}enewsfile_other where modtype=8 and type='$type'";
+	$totalquery="select count(*) as total from {$dbtbpre}enewsfile_other where modtype=8 and type='$type'";
+	$tranname='轮播图';
+}else//信息
 {
 	$isinfofile=1;
 	if(!$classid||!$class_r[$classid]['tbname'])
