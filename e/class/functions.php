@@ -2655,7 +2655,8 @@ if(empty(\$class_r[\$indexbqr['classid']]['tbname'])){continue;}
 //无信息的信息列表
 function NotinfoListHtml($path,$list_r,$classlevel){
 	global $fun_r;
-	$word=$fun_r['HaveNotListInfo'];
+	//$word=$fun_r['HaveNotListInfo'];
+	$word='';
 	$pagetext=$list_r[0].$word.$list_r[2];
 	$pagetext=str_replace('[!--show.page--]','',$pagetext);
 	$pagetext=str_replace('[!--show.listpage--]','',$pagetext);
@@ -2698,7 +2699,7 @@ function ListHtml($classid,$fields,$enews=0,$userlistr=""){
 			$classlevel=AddCheckClassLevel($classid,$cr['cgroupid'],'');
 		}
 		//页面
-		$pagetitle=ehtmlspecialchars($class_r[$classid][classname]);
+		$pagetitle=ehtmlspecialchars($class_r[$classid][bname]);
 		$pagekey=ehtmlspecialchars($cr['classpagekey']);
 		$pagedes=ehtmlspecialchars($cr['intro']);
 		$classimg=$cr['classimg'];
@@ -3392,7 +3393,7 @@ function GetHtmlRepVar($tempr,$classid){
 	$newstempstr=str_replace('[!--newsnav--]','<?=$grurl?>',$newstempstr);//位置导航
 	$newstempstr=str_replace('[!--pagetitle--]','<?=$grpagetitle?>',$newstempstr);
 	$newstempstr=str_replace('[!--pagekey--]','<?=$ecms_gr[keyboard]?>',$newstempstr);
-	$newstempstr=str_replace('[!--pagedes--]','<?=$grpagetitle?>',$newstempstr);
+	$newstempstr=str_replace('[!--pagedes--]','<?=$ecms_gr[smalltext]?>',$newstempstr);
 	$newstempstr=str_replace('[!--self.classid--]','<?=$ecms_gr[classid]?>',$newstempstr);
 	$newstempstr=str_replace('[!--bclass.id--]','<?=$grbclassid?>',$newstempstr);
 	$newstempstr=str_replace('[!--bclass.name--]','<?=$class_r[$grbclassid][classname]?>',$newstempstr);
