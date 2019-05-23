@@ -6,7 +6,7 @@ if(!defined('InEmpireCMS'))
 ?>
 <?php
 //查询SQL，如果要显示自定义字段记得在SQL里增加查询字段
-$query="select id,classid,isurl,titleurl,isqf,havehtml,istop,isgood,firsttitle,ismember,userid,username,eckuid,plnum,totaldown,onclick,newstime,truetime,lastdotime,titlepic,title from ".$infotb.$ewhere." order by ".$doorder." limit $offset,$line";
+$query="select id,classid,isurl,titleurl,isqf,havehtml,istop,isgood,firsttitle,ismember,userid,username,eckuid,plnum,totaldown,onclick,newstime,truetime,lastdotime,titlepic,title,reposition from ".$infotb.$ewhere." order by ".$doorder." limit $offset,$line";
 $sql=$empire->query($query);
 //返回头条和推荐级别名称
 $ftnr=ReturnFirsttitleNameList(0,0);
@@ -30,6 +30,11 @@ else
 {
 	$searchfirsttitles=$ftnr['ftname'];
 }
+$positionarr=array(
+  1=>'右侧推荐阅读',
+  2=>'右侧图片广告下推荐',
+  3=>'猜你喜欢'
+);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -313,6 +318,13 @@ function PushInfoToZt(form)
           <?=$r[title]?>
           </a> 
           <?=$qf?>
+          <br/>推荐位置：
+      <?php
+      $positionidarr=explode(',',substr($r['reposition'],1,-1));
+      foreach($positionidarr as $positionid){
+        echo '<font style="color:red;">'.$positionarr[$positionid].'</font> &nbsp;';
+      }
+      ?>
         </div></td>
       <td height="25"<?=$r['eckuid']?' title="审核人UID：'.$r['eckuid'].'"':''?>> <div align="center"> 
           <?=$r[username]?>
@@ -360,10 +372,10 @@ function PushInfoToZt(form)
           </select>
           <input type="submit" name="Submit82" value="推荐" onClick="document.listform.enews.value='GoodInfo_all';document.listform.doing.value='0';document.listform.action='ecmsinfo.php';">
           <select name="firsttitle" id="firsttitle">
-            <option value="0">取消头条</option>
+            <option value="0">取消首页置顶</option>
             <?=$ftnr['ftname']?>
           </select>
-          <input type="submit" name="Submit823" value="头条" onClick="document.listform.enews.value='GoodInfo_all';document.listform.doing.value='1';document.listform.action='ecmsinfo.php';">
+          <input type="submit" name="Submit823" value="首页置顶" onClick="document.listform.enews.value='GoodInfo_all';document.listform.doing.value='1';document.listform.action='ecmsinfo.php';">
           <input type="submit" name="Submit11" value="归档" onClick="document.listform.enews.value='InfoToDoc';document.listform.doing.value='0';document.listform.action='ecmsinfo.php';">
           <select name="istop" id="select">
             <option value="0">不置顶</option>
@@ -377,9 +389,23 @@ function PushInfoToZt(form)
     <tr bgcolor="#FFFFFF"> 
       <td height="25" colspan="8"> <table width="100%" border="0" cellpadding="0" cellspacing="0">
           <tr> 
-            <td width="68%"> 
+            <td width="48%"> 
               <?=$returnpage?>
             </td>
+
+            <td width="20%">
+            选择推荐位置：<br/><select multiple="" size="12" name="repositionid[]">
+            <?php
+            foreach ($positionarr as $positionkey =>$positionval){
+              echo '  <option style="background:#99C4E3" value="'.$positionkey.'">|-'.$positionval.'</option>';
+            
+            }
+            ?>
+            </select>
+            <br/>
+               <input type="submit" name="SubmitRe" value="推荐位置" onClick="document.listform.enews.value='ReInfo_all';document.listform.action='ecmsinfo.php';">
+                <input type="submit" name="SubmitReNo" value="取消所有推荐位置" onClick="document.listform.enews.value='ReInfo_all_no';document.listform.action='ecmsinfo.php';">
+          </td>
             <td width="32%"> <div align="right">
 			<span id="moveclassnav"></span>
                 <input type="submit" name="Submit5" value="移动" onClick="document.listform.enews.value='MoveNews_all';document.listform.action='ecmsinfo.php';">

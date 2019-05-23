@@ -207,6 +207,15 @@ elseif($enews=="DoInfoAndSendNotice")//处理信息并通知
 		$doid[0]=$adddatar['id'];
 		MoveNews_all($adddatar['classid'],$doid,$adddatar['to_classid'],$logininid,$loginin);
 	}
+}else if($enews=="ReInfo_all"){
+	$classid=$_POST['classid'];
+	$id=$_POST['id'];
+	$rePostionId=$_POST['repositionid'];
+	RePosition($classid,$id,$rePostionId);
+}else if($enews=="ReInfo_all_no"){
+	$classid=$_POST['classid'];
+	$id=$_POST['id'];
+	RePositionNo($classid,$id);
 }
 else
 {

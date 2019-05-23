@@ -3196,4 +3196,46 @@ function DoInfoSendNotice($userid,$username,$to_userid,$to_username,$causetext,$
 	
 	eSendMsg(addslashes($title),addslashes($msgtext),$to_username,0,'',1,1,$isadmin);
 }
+
+function RePosition($classid,$id,$positionid){
+	global $empire,$class_r,$dbtbpre;
+	$classid=(int)$classid;
+	//print_r($classid);exit();
+	if(empty($classid))
+	{
+		printerror("ErrorUrl","history.go(-1)");
+	}
+	$count=count($id);
+	if(empty($count))
+	{
+		printerror("请选择信息后再进行操作","history.go(-1)",0,0,1);
+	}
+	if(empty($positionid) || !is_array($positionid)){
+		printerror("请选择推荐位置后再进行操作","history.go(-1)",0,0,1);
+	}
+	$positionstr=','.implode(',',$positionid).',';
+	foreach($id as $idval){
+		$empire->query("update {$dbtbpre}ecms_news set reposition='{$positionstr}' where id={$idval}");
+	
+	}
+	printerror("操作成功",$_SERVER['HTTP_REFERER'],0,0,1);
+}
+function RePositionNo($classid,$id){
+	global $empire,$class_r,$dbtbpre;
+	$classid=(int)$classid;
+	if(empty($classid))
+	{
+		printerror("ErrorUrl","history.go(-1)");
+	}
+	$count=count($id);
+	if(empty($count))
+	{
+		printerror("请选择信息后再进行操作","history.go(-1)",0,0,1);
+	}
+	foreach($id as $idval){
+		$empire->query("update {$dbtbpre}ecms_news set reposition='' where id={$idval}");
+	
+	}
+	printerror("操作成功",$_SERVER['HTTP_REFERER'],0,0,1);
+}
 ?>
