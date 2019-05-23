@@ -381,7 +381,7 @@ function PushInfoToZt(form)
             <option value="0">不置顶</option>
             <option value="1">栏目置顶</option>
           </select>
-          <input type="submit" name="Submit7" value="置顶" onClick="document.listform.enews.value='TopNews_all';document.listform.action='ecmsinfo.php';">
+          <input type="submit" name="Submit7" value="栏目置顶" onClick="document.listform.enews.value='TopNews_all';document.listform.action='ecmsinfo.php';">
 		  <input type="submit" name="Submit7" value="修改时间" onClick="document.listform.enews.value='EditMoreInfoTime';document.listform.action='ecmsinfo.php';">
 		  <input type="button" name="Submit52" value="推送至专题" onClick="PushInfoToZt(this.form);">
         </div></td>
