@@ -23,7 +23,16 @@
 
                     <div class="recommend">
                         <div class="recommendTitle">推荐阅读</div>
-                        [e:loop={"select title,titleurl,smalltext from {$dbtbpre}ecms_news where reposition like '%,1,%' order by newstime desc limit 6",0,24,0}]
+                        <?php
+                            if($GLOBALS['navclassid']){
+                                $select_sql="select title,titleurl,smalltext from {$dbtbpre}ecms_news where reposition like '%,1,%' and classid={$GLOBALS['navclassid']} order by newstime desc limit 6";
+
+                            }else{
+                                $select_sql="select title,titleurl,smalltext from {$dbtbpre}ecms_news where reposition like '%,1,%' order by newstime desc limit 6";
+                            }
+
+                        ?>
+                        [e:loop={$select_sql,0,24,0}]
                             <div class="reListItem">
                                 <div class="reListItmeTitle"><a href="<?=$bqr['titleurl']?>"><?=$bqr['title']?></a></div>
                                 <div class="reListCont">
