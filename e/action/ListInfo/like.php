@@ -3,7 +3,7 @@
 /**
  * @Author: weibo.yao
  * @Date:   2019-05-23 15:19:35
- * @Last Modified time: 2019-05-24 11:42:42
+ * @Last Modified time: 2019-05-24 11:46:39
  */
 require('../../class/connect.php');
 require('../../class/db_sql.php');
@@ -24,16 +24,16 @@ $num=$empire->gettotal($totalquery);
 if($num<=8){
     exit('');
 }
-$limit_arr=$limits=array();
+$limit_arr=$limit_ids=array();
 for($i=0;$i<$num;$i++){
     $limit_arr[]=$i;
 }
 $limits = array_rand($limit_arr,8);
 foreach($limits as $limit_key){
-    $limits[]=$limit_arr[$limit_key];
+    $limit_ids[]=$limit_arr[$limit_key];
 }
 $news_list=array();
-foreach($limits as $limit ){
+foreach($limit_ids as $limit ){
     $query="select ftitle,titleurl from {$dbtbpre}ecms_".$tbname." where ".$add;
     $query.=" order by ".$addorder." limit {$limit},1";
     $sql=$empire->query($query);
