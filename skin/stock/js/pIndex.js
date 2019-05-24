@@ -4,47 +4,9 @@ window.onload = function() {
     if(start==0){
         getnewstr();
     }
-    /*for (var i = 0; i < 20; i++) {
-        $(".newList").append(
-            '<div class="newListItem box">' +
-            '<div class="newsImg imgAll"><img src="' + json[i].pImg + '"></div>' +
-            '<div class="newsCont boxL">' +
-            '<div class="newsTtile">' + json[i].title + i + '</div>' +
-            '<div class="newsTime">' + json[i].timer + '</div>' +
-            '<div class="newsTxt">' + json[i].cont + '</div>' +
-            '</div>' +
-            '<div class="roofsImg"><img src="./images/roofsImg.png"></div>' +
-            '</div>'
-        )
-        if(json[i].roofsImg == "1"){
-            $(".roofsImg").show();
-        }
-    }*/
-
-    /*$('.wrap div').click(function() {
-        var i = $(this).index(); //下标第一种写法
-        //var i = $('tit').index(this);//下标第二种写法
-        $(this).addClass('active').siblings().removeClass('active');
-        $('.title li').eq(i).show().siblings().hide();
-    });*/
 }
 window.onscroll = function() {
     if ($(document).scrollTop() >= $(document).height() - $(window).height() - 100) {
-        //alert("滚动条已经到达底部为" + $(document).scrollTop());
-        /*var n = $(".newListItem").length;
-        for (var i = 0; i < 20; i++) {
-            $(".newList").append(
-                '<div class="newListItem box">' +
-                '<div class="newsImg imgAll"><img src="' + json[n + i].pImg + '"></div>' +
-                '<div class="newsCont boxL">' +
-                '<div class="newsTtile">' + json[n + i].title + (n + i) + '</div>' +
-                '<div class="newsTime">' + json[n + i].timer + '</div>' +
-                '<div class="newsTxt">' + json[n + i].cont + '</div>' +
-                '</div>' +
-                '<div class="roofsImg"><img src="./images/roofsImg.png"></div>' +
-                '</div>'
-            )
-        }*/
         getnewstr();
     }
     var s = $(window).scrollTop();
@@ -93,6 +55,29 @@ function getnewstr(){
         }
     })
 }
+
+// 点击喜欢更多
+$(function(){
+    $('#morelike').click(function(){
+        $.ajax({
+            url: newsurl+'e/action/ListInfo/like.php',
+            type: 'GET',
+            dataType: 'json',
+            async:false,
+            success:function(response){
+                if(response){
+                    $('#like_list').html('');
+                    $.each(response,function(i,news){
+                        var newstr='<li><a href="'+news.titleurl+'">'+news.ftitle+'</a></li>';
+                        $('#like_list').append(newstr);
+                    });
+                }
+            }
+        })
+    });
+})
+
+
 
 function ajax(url, func) {
             var xmlhttp;

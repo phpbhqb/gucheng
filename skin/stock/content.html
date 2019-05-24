@@ -49,11 +49,11 @@
                         </div>
                         <div class="GraspUserTitle box">
                             <p class="boxL">猜你喜欢</p>
-                            <span>更多可能你喜欢的内容</span>
+                            <span id="morelike">更多可能你喜欢的内容</span>
                         </div>
                         <div class="GraspUserCont clearfix">
-                            <ul>
-                                [e:loop={"select ftitle,titleurl from {$dbtbpre}ecms_news where isgood=3 order by newstime desc limit 8",0,24,0}]
+                            <ul id="like_list">
+                                [e:loop={"select ftitle,titleurl from {$dbtbpre}ecms_news where reposition like '%,3,%' order by newstime desc limit 8",0,24,0}]
                                 <li><a href="<?=$bqr['titleurl']?>"><?=esub($bqr['ftitle'],20)?></a></li>
                                 [/e:loop]
                             </ul>

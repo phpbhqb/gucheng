@@ -23,7 +23,7 @@
 
                     <div class="recommend">
                         <div class="recommendTitle">推荐阅读</div>
-                        [e:loop={"select title,titleurl,smalltext from {$dbtbpre}ecms_news where isgood=1 order by newstime desc limit 6",0,24,0}]
+                        [e:loop={"select title,titleurl,smalltext from {$dbtbpre}ecms_news where reposition like '%,1,%' order by newstime desc limit 6",0,24,0}]
                             <div class="reListItem">
                                 <div class="reListItmeTitle"><a href="<?=$bqr['titleurl']?>"><?=$bqr['title']?></a></div>
                                 <div class="reListCont">
@@ -35,7 +35,7 @@
                     <div class="focusing">
                         <div class="bigImg imgAll"><script src="/d/js/acmsd/thea2.js"></script></div>
 
-                        [e:loop={"select title,titleurl,titlepic,newstime,titlepic_alt from {$dbtbpre}ecms_news where isgood=2 order by newstime desc limit 3",0,24,0}]
+                        [e:loop={"select title,titleurl,titlepic,newstime,titlepic_alt from {$dbtbpre}ecms_news where reposition like '%,2,%' order by newstime desc limit 3",0,24,0}]
                              <div class="focusingItem box">
                             <div class="focusingImg imgAll"><a href="<?=$bqr['titleurl']?>"><img src="<?=$bqr['titlepic']?>" width="135px" height="75px" alt="<?=$bqr['titlepic_alt']?>"></a></div>
                             <div class="focusingCont boxL">
