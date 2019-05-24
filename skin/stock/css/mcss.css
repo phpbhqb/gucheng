@@ -354,12 +354,7 @@ a {
     border-bottom: 1px solid #fff;
 }
 .menu ul li a{
-    flex-grow: 1;
-    flex-basis: 3.13rem;
-    text-align: center;
     color: #fff;
-    line-height: 2.69rem;
-    border-bottom: 1px solid #fff;
 }
 .menu ul li:first-child {
     background: url(../images/mLogo.jpg) no-repeat;
