@@ -3,7 +3,7 @@
 /**
  * @Author: weibo.yao
  * @Date:   2019-05-23 15:19:35
- * @Last Modified time: 2019-05-24 11:25:52
+ * @Last Modified time: 2019-05-24 11:42:42
  */
 require('../../class/connect.php');
 require('../../class/db_sql.php');
@@ -32,11 +32,11 @@ $limits = array_rand($limit_arr,8);
 foreach($limits as $limit_key){
     $limits[]=$limit_arr[$limit_key];
 }
+$news_list=array();
 foreach($limits as $limit ){
     $query="select ftitle,titleurl from {$dbtbpre}ecms_".$tbname." where ".$add;
     $query.=" order by ".$addorder." limit {$limit},1";
     $sql=$empire->query($query);
-    $news_list=array();
     while($r=$empire->fetch($sql))
     {
         $news_list[]=array(
