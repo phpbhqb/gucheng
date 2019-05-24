@@ -4,6 +4,13 @@ window.onload = function() {
     if(start==0){
         getnewstr();
     }
+
+    $('.wrap div').click(function() {
+        var i = $(this).index(); //下标第一种写法
+        //var i = $('tit').index(this);//下标第二种写法
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.title li').eq(i).show().siblings().hide();
+    });
 }
 window.onscroll = function() {
     if ($(document).scrollTop() >= $(document).height() - $(window).height() - 100) {
