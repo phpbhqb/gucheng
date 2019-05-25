@@ -27,6 +27,7 @@
 <body>
     <div class="menu">
         <ul>
+            <li></li>
             <li><a href="<?=$public_r['newsurl']?>e/wap/">首页</a></li>
 <?php
             $sql=$empire->query("select classid,classname,islast from {$dbtbpre}enewsclass where bclassid=0 and showclass=0 and wburl='' order by myorder,classid");
