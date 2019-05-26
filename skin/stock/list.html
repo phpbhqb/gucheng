@@ -31,17 +31,10 @@
             <div class="AdtImg imgAll"><script src="/d/js/acmsd/thea1.js"></script></div>
             <div class="conter">
                 <div class="contL">
-                    <div class="newFlash box">
-                        <span>快讯</span>
-                        <div class="newFlashList boxL">
-                            [e:loop={"select fname,url from {$dbtbpre}enewsfocus where classid=1 order by fsort",0,24,0}]
-                                <a href="<?=$bqr['url']?>"><?=$bqr['fname']?></a>
-                            [/e:loop]
-                        </div>
-                    </div>
+                    [!--temp.fastnew--]
                     <div class="newList">
                     </div>
-                    <div class="more_list_page" start="0" cid="<?=$GLOBALS['navclassid']?>" style="display:none">
+                    <div class="more_list_page" start="0" cid="<?=$GLOBALS['navclassid']?>" order="2" style="display:none">
 
                     </div>
                 </div>

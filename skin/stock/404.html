@@ -10,13 +10,6 @@
     <meta name="description" content="[!--pagedes--]" />
     <link rel="stylesheet" href="[!--news.url--]skin/stock/css/css.css">
     <link rel="stylesheet" href="[!--news.url--]skin/stock/css/style.css">
-    <link rel="stylesheet" href="[!--news.url--]skin/stock/css/zhishu.css">
-    <script type="text/javascript">
-        var newsurl='[!--news.url--]';
-        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            window.location.href = "[!--news.url--]e/wap/";
-        }
-    </script>
 </head> 
 
 <body>
@@ -31,23 +24,27 @@
     </div>
     <div class="center">
         <div class="centerCont mg1200 clearfix">
-            <div class="AdtImg imgAll"><script src="/d/js/acmsd/thea1.js"></script></div>
-            <div class="conter">
-                <div class="contL">
-                    [!--temp.fastnew--]
-                    <div class="newList">
-                    </div>
-                    <div class="more_list_page" start="0" cid="0" style="display:none">
-                    </div>
-                </div>
-                [!--temp.sidebar--]
-
+            <div class="Error">
+                <h1>ERROR</h1>
+                <p>咦？ 我<span>迷路了！</span> <em>3</em>秒后自动<a href="[!--news.url--]">回家</a>....</p>
             </div>
         </div>
     </div>
-
     <script src="[!--news.url--]skin/stock/js/jquery-3.4.1.min.js"></script>
-    <script src="[!--news.url--]skin/stock/js/pIndex.js"></script>
+    <script>
+        var newsurl='[!--news.url--]';
+        window.onload = function() {
+            // $(".Error p em").html(t);
+            var cont = 3;
+            setInterval(function() {
+                if (cont >= 1) {
+                    $(".Error p em").html(cont--);
+                } else {
+                    window.location.href = newsurl;
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 
 </html>

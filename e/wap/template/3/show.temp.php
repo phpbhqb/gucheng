@@ -38,6 +38,8 @@
         <div class="contierCon">
             <?=stripSlashes($r['newstext'])?>
         </div>
+        <div class="bdsharebuttonbox share"><label style="float:left;">分享到：</label><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style=""></a><a href="#"  class="bds_sqq" data-cmd="sqq" title="分享到QQ好友" style=""></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style=""></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </div>
     <div class="newsList">
     </div>

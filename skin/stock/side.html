@@ -12,15 +12,6 @@
                         </div>
                     </div>
 
-                    <!--<div class="hqpic"><div class="hq_data" id="hq_data">
-<b>2882.3<em>-73.41&nbsp;&nbsp;-2.48%</em></b>
-<a href="http://hq.gucheng.com/SH000001/" id="hqCanvas" target="_blank"></a>
-</div>
-<ul id="stockUl"><li><a href="http://hq.gucheng.com/SH000001/" target="_blank" class="on">上证指数</a></li><li><a href="http://hq.gucheng.com/SZ399001/" target="_blank">深证成指</a></li><li><a href="http://hq.gucheng.com/SZ399006/" target="_blank">创业板指</a></li></ul>
-</div>-->
-
-
-
                     <div class="recommend">
                         <div class="recommendTitle">推荐阅读</div>
                         <?php
@@ -56,14 +47,14 @@
                     </div>
                     <div class="emailUrl box">
                         <p class="boxL emailImg"><?=$public_r['add_law_email']?></p>
-                        <span><a href="javascript:;">法律声明</a></span>
+                        <span><a href="[!--news.url--]aboutus.html" target="_blank">法律声明</a></span>
                     </div>
                     <div class="recommend">
                         <div class="recommendTitle">友情链接</div>
                         <div class="fdsLink clearfix">
                             <ul>
                                 [e:loop={"select lname,lurl from {$dbtbpre}enewslink order by myorder",0,24,0}]
-                                    <li><a href="<?=$bqr['lurl']?>"><?=$bqr['lname']?></a></li>
+                                    <li><a href="<?=$bqr['lurl']?>" target="_blank"><?=$bqr['lname']?></a></li>
                                 [/e:loop]
                             </ul>
                         </div>
