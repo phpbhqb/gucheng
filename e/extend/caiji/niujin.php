@@ -27,7 +27,7 @@ $link=db_connect();
 $empire=new mysqlquery();
 $listurl='http://www.niujin.com/plus/ajax.php?action=toutiao&page=0&type=0';
 $host=getHost($listurl);
-$classid=2;
+$classid=12;
 for($k=1;$k<=100;$k++){
     $listurl_caiji=str_replace('page=0','page='.$k,$listurl);
     $listcon=getcon($listurl_caiji);
