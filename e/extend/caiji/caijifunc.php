@@ -72,6 +72,7 @@ function getdownload($url,$referurl,$filename,$count=3){
 	if($count==0){
 		return 0;
 	}
+	$filesize=0;
 	$ch=curl_init();
 	curl_setopt($ch,CURLOPT_URL,$url);
 	curl_setopt($ch,CURLOPT_REFERER,$referurl);
@@ -81,14 +82,20 @@ function getdownload($url,$referurl,$filename,$count=3){
 	//curl_setopt($ch,CURLOPT_MAXREDIRS,5);//指定最多的HTTP重定向的数量
 	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 	$res=curl_exec($ch);
-	$fp = fopen($filename,"w") or die("写入文件：{$filename} 失败！");
-	fwrite($fp,$res);
-	fclose($fp);
-	curl_close($ch);
-	$filesize=filesize($filename);
-	if(empty($filesize)){
+	$fp = fopen($filename,"w");
+	if($fp){
+		fwrite($fp,$res);
+		fclose($fp);
+		curl_close($ch);
+		$filesize=filesize($filename);
+		if(empty($filesize)){
+			getdownload($url,$referurl,$filename,$count-1);
+		}
+	}else{
+		curl_close($ch);
 		getdownload($url,$referurl,$filename,$count-1);
 	}
+	
 	return $filesize;
 }
 function getdownload2($url,$filename){
