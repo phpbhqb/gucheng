@@ -18,4 +18,4 @@ require($path.'/../../data/dbcache/class.php');
 require($path."/../../class/hinfofun.php");
 require($path."/../../class/chtmlfun.php");
 include(ECMS_PATH."e/class/gd.php");
-GetMyMarkImg(ECMS_PATH.'d/file/p/2019/05-22/586531c41d38ef0b3e94cbef0b6b36c2.jpg');
+GetMyMarkImg(ECMS_PATH.'d/file/niujin/20181227/163-1Q22G05341b0.jpg');
