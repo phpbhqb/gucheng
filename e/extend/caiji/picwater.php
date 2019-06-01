@@ -42,7 +42,7 @@ function traverse($path = '.') {
 $a=traverse(ECMS_PATH.'d/file/niujin_bak');
 foreach($a as $file){
 	if(exif_imagetype($file)!==false){
-		echo $file;
+		GetMyMarkImg($file);
 	}
 }
 //print_r($a);
