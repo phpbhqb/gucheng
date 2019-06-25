@@ -3,7 +3,7 @@
 /**
  * @Author: weibo.yao
  * @Date:   2019-05-28 16:50:43
- * @Last Modified time: 2019-05-29 16:06:02
+ * @Last Modified time: 2019-06-25 10:07:59
  */
 set_time_limit(0);
 ini_set('memory_limit','-1');
@@ -19,7 +19,7 @@ require($path."/../../class/hinfofun.php");
 require($path."/../../class/chtmlfun.php");
 require($path.'/./caijifunc.php');
 
-$logpath=$path.'/log/niujin/'.date('Ymd');
+$logpath=$path.'/log/fx47/'.date('Ymd');
 if(!is_dir($logpath)){
     mkdir($logpath,0777,true);
 }
@@ -28,6 +28,7 @@ $empire=new mysqlquery();
 $listurl='http://fx47.com/e/extend/rolling/list.php?classid=27&page=1';
 $host=getHost($listurl);
 $classid=13;
+//$classid=1;
 for($k=18;$k>=1;$k--){
     $listurl_caiji=str_replace('page=1','page='.$k,$listurl);
     file_put_contents($logpath.'/./caiji_'.$classid.'.log',"\t".'开始采集第'.$k.'页'."{$listurl_caiji}\t".
@@ -70,7 +71,7 @@ for($k=18;$k>=1;$k--){
             continue;
         }
 
-        $smalltext=$smalltext_match[1][$key];
+        $smalltext=str_replace('...','',$smalltext_match[1][$key]);
         $titleexistquery=$empire->query("select 1 from {$dbtbpre}ecms_news where title='{$title}' 
             and classid=$classid");
         $titleexist=$empire->fetch($titleexistquery);
