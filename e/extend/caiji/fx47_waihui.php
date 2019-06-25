@@ -3,7 +3,7 @@
 /**
  * @Author: weibo.yao
  * @Date:   2019-05-28 16:50:43
- * @Last Modified time: 2019-06-25 10:07:59
+ * @Last Modified time: 2019-06-25 10:18:19
  */
 set_time_limit(0);
 ini_set('memory_limit','-1');
@@ -18,6 +18,8 @@ require($path.'/../../data/dbcache/class.php');
 require($path."/../../class/hinfofun.php");
 require($path."/../../class/chtmlfun.php");
 require($path.'/./caijifunc.php');
+$editor=1;
+include(ECMS_PATH."e/class/gd.php");
 
 $logpath=$path.'/log/fx47/'.date('Ymd');
 if(!is_dir($logpath)){
@@ -62,6 +64,7 @@ for($k=18;$k>=1;$k--){
                     'titlepic size未获取到'."\t".date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
                 continue;
             }else{
+                GetMyMarkImg($caijipath.$titlepicname);
                 $titlepic=$public_r['fileurl'].'fx47/'.$day.'/'.$titlepicname;
             }
             
@@ -103,6 +106,7 @@ for($k=18;$k>=1;$k--){
                 FILE_APPEND);
                 $newstext=str_replace($img_match[0][$img_key],'',$newstext);
             }else{
+                GetMyMarkImg($caijipath.$img_name);
                 $caiji_img_url=$public_r['fileurl'].'fx47/'.$day.'/'.$img_name;
                 $newstext=str_replace($img,$caiji_img_url,$newstext);
             }
