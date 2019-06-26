@@ -3,7 +3,7 @@
 /**
  * @Author: weibo.yao
  * @Date:   2019-05-28 16:50:43
- * @Last Modified time: 2019-06-25 10:18:19
+ * @Last Modified time: 2019-06-26 17:29:24
  */
 set_time_limit(0);
 ini_set('memory_limit','-1');
@@ -54,8 +54,11 @@ for($k=200;$k>=1;$k--){
         $titlepicurl=str_replace('//','',$json_one['thumb']);
         $title=addslashes($json_one['title']);
         $titleurl_copy=str_replace('//','',$json_one['url']);
-        
+        $titleurl_copy='http://www.zhicheng.com/n/20190520/268177.html';
         $con=getcon($titleurl_copy);
+        preg_match('/<p class="main_center_bianqin_fl">(.*?)<\/p>/',$con,$tag_con_match);
+        preg_match_all('/<a href="[^"]+"\s*[^>]*><span>([^<]+)/',$tag_con_match[1],$tag_str_match);
+        $tag_str=implode(',',$tag_str_match[1]);
         preg_match('/<span>([^<]+)<\/span>\s*<div class="bdsharebuttonbox">/',$con,$newstime_match);
         $newstime=$lastdotime=strtotime($newstime_match[1]);
         $truetime=time();
@@ -91,16 +94,28 @@ for($k=200;$k>=1;$k--){
                 标题出现重复'."\t".date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
             continue;
         }
-
-        
         //echo $con;
         preg_match('/<div class="wen_article">(.*)<div class="sf_1">/is',$con,$newstext_match);
         //print_r($newstext_match);exit();
         $newstext=$newstext_match[1];
         preg_match('/<span style="font-size:14px;"><span style="font-family:微软雅黑;">.*?<\/span><\/span>/',$con,$remove_match);
-        print_r($remove_match);exit();
+        $newstext=str_replace($remove_match[0],'',$newstext);
+        preg_match('/<div class="page">(.*?)<\/div>/',$con,$con_page_match);
+        preg_match_all('/<a href="([^"]+)"/',$con_page_match[1],$page_a_match);
+        $newstext_arr=array($newstext);
+        foreach($page_a_match[1] as $key=>$page_url){
+            $con=getcon(str_replace('//','',$page_url));
+            preg_match('/<div class="wen_article">(.*)<div class="sf_1">/is',$con,$newstext_match);
+            $newstext_arr[]=$newstext_match[1];
+
+        }
+        $newstext_con=implode('[!--empirenews.page--]',$newstext_arr);
+        preg_match_all('/<a href="[^"]+"\s*[^>]*>([^<]+)<\/a>/',$newstext_con,$a_match);
+        foreach($a_match[0] as $a_key=>$a_val){
+            $newstext_con=str_replace($a_val,$a_match[1][$a_key],$newstext_con);
+        }
         preg_match_all('/<img[^>]*?src="([^"]+)"[^>]*>/is',
-            $newstext,$img_match);
+            $newstext_con,$img_match);
         foreach($img_match[1] as $img_key => $img){
             if(strstr($img,'https://')!==false || strstr($img,'http://')!==false){
                 $img_url=$img;
@@ -114,22 +129,22 @@ for($k=200;$k>=1;$k--){
                 file_put_contents($logpath.'/./caiji_'.$classid.'.error.log',$img_url.
                 ' pic size未获取到'."\t".$titleurl_copy."\t".date( 'Y-m-d H:i:s')."\n",
                 FILE_APPEND);
-                $newstext=str_replace($img_match[0][$img_key],'',$newstext);
+                $newstext_con=str_replace($img_match[0][$img_key],'',$newstext_con);
             }else{
-                GetMyMarkImg($caijipath.$img_name);
-                $caiji_img_url=$public_r['fileurl'].'fx47/'.$day.'/'.$img_name;
-                $newstext=str_replace($img,$caiji_img_url,$newstext);
+                //GetMyMarkImg($caijipath.$img_name);
+                $caiji_img_url=$public_r['fileurl'].'zhicheng/'.$day.'/'.$img_name;
+                $newstext_con=str_replace($img,$caiji_img_url,$newstext_con);
             }
             
         }
-        $newstext=addslashes($newstext);
+        $newstext_con=addslashes($newstext_con);
         //$newstext=addslashes($newstext_match[1]);
 
         $empire->query("insert into {$dbtbpre}ecms_news(classid,userid,username,newstime,truetime,
             lastdotime,stb,
         fstb,restb,title,ftitle,titlepic,havehtml,smalltext,keyboard,titlepic_alt,caijiurl) values
         ($classid,1,'admin',$newstime,$truetime,$lastdotime,1,1,1,'{$title}','{$title}','{$titlepic}'
-        ,1,'{$smalltext}','','{$title}','{$titleurl_copy}')");
+        ,1,'{$smalltext}','{$tag_str}','{$title}','{$titleurl_copy}')");
         $newsid=$empire->lastid();
         $titleurl=$public_r['newsurl'].$class_r[$classid]['classpath'].'/'.$newsid.'.html';
         $filename=$newsid;
@@ -139,7 +154,7 @@ for($k=200;$k>=1;$k--){
             ,lastdotime,havehtml) values(
         $newsid,$classid,1,$newstime,$truetime,$lastdotime,1)");
         $empire->query("insert into {$dbtbpre}ecms_news_data_1(id,classid,infotags,befrom,newstext) 
-            values($newsid,$classid,'','分享财经','{$newstext}')");
+            values($newsid,$classid,'{$tag_str}','分享财经','{$newstext_con}')");
         //GetHtml($classid,$newsid,'',0);
 
         file_put_contents($logpath.'/./caiji_'.$classid.'.log',"\t".$titleurl_copy."的内容采集完毕" ."\t".

@@ -11,4 +11,10 @@
 .hqpic ul li a:hover,.hqpic ul li a.on{background:#c60000;color:#f4cccc}
 .hq span{float:left;width:302px;height:21px;line-height:21px;padding-bottom:10px;font-weight:bold;text-align:right;color:#f90}
 .hqpic ul li a.on{position:relative}
-.hqpic ul li a.on:after{content:'';width:8px;height:8px;position:absolute;left:0;top:50%;margin:-4px 0 0 -4px;background:#c60000;transform:rotate(45deg);z-index:1
+.hqpic ul li a.on:after{content:'';width:8px;height:8px;position:absolute;left:0;top:50%;margin:-4px 0 0 -4px;background:#c60000;transform:rotate(45deg);z-index:1}
+.page{width:100%;display:block;overflow:hidden;margin:20px auto;text-align:center;}
+.page span{border:1px solid #3783d0;height:38px;width:38px;text-align:center;line-height:38px;color:#00a0e9;font-size:16px;display:inline-block;margin:0 3px}
+.page a{color:#6f6f6f;border:1px solid #6f6f6f;height:38px;line-height:38px;width:38px;text-align:center;display:inline-block;margin:0 3px;font-size:16px;}
+.page .a1{border:1px solid #6f6f6f;height:38px;width:68px;text-align:center;line-height:38px;margin:0;font-size:16px;color:#6f6f6f;margin:0 3px}
+.page a:hover{border:1px solid #3783d0;color:#00a0e9;text-decoration: none;}
+
