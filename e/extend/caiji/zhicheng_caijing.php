@@ -75,7 +75,7 @@ for($k=200;$k>=1;$k--){
                     'titlepic size未获取到'."\t".date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
                 continue;
             }else{
-                //GetMyMarkImg($caijipath.$titlepicname);
+                GetMyMarkImg($caijipath.$titlepicname);
                 $titlepic=$public_r['fileurl'].'zhicheng/'.$day.'/'.$titlepicname;
             }
             
@@ -131,7 +131,7 @@ for($k=200;$k>=1;$k--){
                 FILE_APPEND);
                 $newstext_con=str_replace($img_match[0][$img_key],'',$newstext_con);
             }else{
-                //GetMyMarkImg($caijipath.$img_name);
+                GetMyMarkImg($caijipath.$img_name);
                 $caiji_img_url=$public_r['fileurl'].'zhicheng/'.$day.'/'.$img_name;
                 $newstext_con=str_replace($img,$caiji_img_url,$newstext_con);
             }
