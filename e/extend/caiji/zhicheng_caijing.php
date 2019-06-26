@@ -54,7 +54,7 @@ for($k=200;$k>=1;$k--){
         $titlepicurl=str_replace('//','',$json_one['thumb']);
         $title=addslashes($json_one['title']);
         $titleurl_copy=str_replace('//','',$json_one['url']);
-        $titleurl_copy='http://www.zhicheng.com/n/20190520/268177.html';
+        
         $con=getcon($titleurl_copy);
         preg_match('/<p class="main_center_bianqin_fl">(.*?)<\/p>/',$con,$tag_con_match);
         preg_match_all('/<a href="[^"]+"\s*[^>]*><span>([^<]+)/',$tag_con_match[1],$tag_str_match);
