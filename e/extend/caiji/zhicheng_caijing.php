@@ -3,7 +3,7 @@
 /**
  * @Author: weibo.yao
  * @Date:   2019-05-28 16:50:43
- * @Last Modified time: 2019-06-27 09:20:25
+ * @Last Modified time: 2019-06-27 10:34:26
  */
 set_time_limit(0);
 ini_set('memory_limit','-1');
@@ -125,10 +125,13 @@ for($k=200;$k>=1;$k--){
             }else{
                 $img_url=$host.$img;
             }
-            if($img_url==$titlepicurl){
-                break;
-            }
             $img_name=getUrlEnd($img);
+            if($img_url==$titlepicurl){
+                $caiji_img_url=$public_r['fileurl'].'zhicheng/'.$day.'/'.$img_name;
+                $newstext_con=str_replace($img,$caiji_img_url,$newstext_con);
+                continue;
+            }
+            
             
             $picsize=getdownload($img_url,$titleurl_copy,$caijipath.$img_name);
             if(empty($picsize)){
@@ -160,7 +163,7 @@ for($k=200;$k>=1;$k--){
             ,lastdotime,havehtml) values(
         $newsid,$classid,1,$newstime,$truetime,$lastdotime,1)");
         $empire->query("insert into {$dbtbpre}ecms_news_data_1(id,classid,infotags,befrom,newstext) 
-            values($newsid,$classid,'{$tag_str}','分享财经','{$newstext_con}')");
+            values($newsid,$classid,'{$tag_str}','至诚财经','{$newstext_con}')");
         //GetHtml($classid,$newsid,'',0);
 
         file_put_contents($logpath.'/./caiji_'.$classid.'.log',"\t".$titleurl_copy."的内容采集完毕" ."\t".
