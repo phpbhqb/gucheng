@@ -3,7 +3,7 @@
 /**
  * @Author: weibo.yao
  * @Date:   2019-05-28 16:50:43
- * @Last Modified time: 2019-06-26 17:29:24
+ * @Last Modified time: 2019-06-27 09:20:25
  */
 set_time_limit(0);
 ini_set('memory_limit','-1');
@@ -67,9 +67,11 @@ for($k=200;$k>=1;$k--){
         if(!is_dir($caijipath)){
             mkdir($caijipath,0777,true);
         }
+        //echo $titleurl_copy;
+        //echo $titlepicurl;exit();
         if(!empty($titlepicurl)){
             $titlepicname=getUrlEnd($titlepicurl);
-            $picsize=getdownload($titlepicurl,$listurl,$caijipath.$titlepicname);
+            $picsize=getdownload($titlepicurl,$titleurl_copy,$caijipath.$titlepicname);
             if(empty($picsize)){
                 file_put_contents($logpath.'/./caiji_'.$classid.'.error.log',$titleurl_copy.
                     'titlepic size未获取到'."\t".date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
@@ -84,6 +86,7 @@ for($k=200;$k>=1;$k--){
                 date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
             continue;
         }
+        //exit();
         $smalltext=$json_one['description'];
         $titleexistquery=$empire->query("select 1 from {$dbtbpre}ecms_news where title='{$title}' 
             and classid=$classid");
@@ -117,14 +120,17 @@ for($k=200;$k>=1;$k--){
         preg_match_all('/<img[^>]*?src="([^"]+)"[^>]*>/is',
             $newstext_con,$img_match);
         foreach($img_match[1] as $img_key => $img){
-            if(strstr($img,'https://')!==false || strstr($img,'http://')!==false){
-                $img_url=$img;
+            if(strstr($img,'//')!==false){
+                $img_url=str_replace('//','',$img);
             }else{
                 $img_url=$host.$img;
             }
+            if($img_url==$titlepicurl){
+                break;
+            }
             $img_name=getUrlEnd($img);
             
-            $picsize=getdownload($img_url,getHost($img_url),$caijipath.$img_name);
+            $picsize=getdownload($img_url,$titleurl_copy,$caijipath.$img_name);
             if(empty($picsize)){
                 file_put_contents($logpath.'/./caiji_'.$classid.'.error.log',$img_url.
                 ' pic size未获取到'."\t".$titleurl_copy."\t".date( 'Y-m-d H:i:s')."\n",
