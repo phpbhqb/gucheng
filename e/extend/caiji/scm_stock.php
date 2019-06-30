@@ -29,34 +29,39 @@ $link=db_connect();
 $empire=new mysqlquery();
 $listurl='http://www.life-scm.com/stock/index_1.html';
 $host=getHost($listurl);
-$classid=8;
-//$classid=1;
+//$classid=3;
+$classid=1;
 for($k=200;$k>=1;$k--){
     $listurl_caiji=str_replace('index_1','index_'.$k,$listurl);
     file_put_contents($logpath.'/./caiji_'.$classid.'.log',"\t".'开始采集第'.$k.'页'."{$listurl_caiji}\t".
         date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
     $listcon=getcon($listurl_caiji);
-    preg_match_all('/<div class="viewimg"><a href="([^"]+)"><img src="([^"]+)"/',$listcon,$titlepic_match);
-    preg_match_all('/<h3><a href="[^"]+">([^<]+)/', $listcon, $title_match);
-    preg_match_all('/<p>([^<]+)/',$listcon,$smalltext_match);
-    preg_match_all('/<span class="timeago">([^<]+)/',$listcon,$newstime_match);
 
+    preg_match_all('/<h2 class="entry-title"><a href="([^"]+)"\s*[^>]+>([^<]+)/', $listcon, $title_match);
+    preg_match_all('/<a class="thumbnail-link" href="([^"]+)"><div class="thumbnail-wrap"><img src="([^"]+)"/',$listcon,$titlepic_match);
+    $titlepic_arr=array();
+    foreach($titlepic_match[2] as $key=>$titlepic){
+        $titlepic_arr[$titlepic_match[1][$key]]=$titlepic;
+    }
+    preg_match_all('/<div class="entry-summary">([^<]+)/',$listcon,$smalltext_match);
+    preg_match_all('/<span class="entry-comment">(.*?)<\/span>/',$listcon,$tag_con_match);
 
-
-    foreach($title_match[1] as $key=>$title){
-        
-        $titlepicurl=$titlepic_match[2][$key];
+    foreach($title_match[2] as $key=>$title){
+        $titlepicurl=$titlepic_arr[$title_match[1][$key]];
         $title=addslashes($title);
-        $titleurl_copy=$host.$titlepic_match[1][$key];
-        
-        $newstime=$lastdotime=strtotime($newstime_match[1][$key]);
+        $titleurl_copy=$host.$title_match[1][$key];
+        echo $titleurl_copy;
+         $con=getcon($titleurl_copy);
+         preg_match('/<span class="entry-date">发布时间: ([^<]+)/',$con,$newstime_match);
+        $newstime=$lastdotime=strtotime($newstime_match[1]);
         $truetime=time();
         $day=date('Ymd',$newstime);
-        $caijipath=ECMS_PATH.'d/file/fx47/'.$day.'/';
+        $caijipath=ECMS_PATH.'d/file/scm/'.$day.'/';
         if(!is_dir($caijipath)){
             mkdir($caijipath,0777,true);
         }
         if(!empty($titlepicurl)){
+            $titlepicurl='http:'.$titlepicurl;
             $titlepicname=getUrlEnd($titlepicurl);
             $picsize=getdownload($titlepicurl,$listurl,$caijipath.$titlepicname);
             if(empty($picsize)){
@@ -64,14 +69,15 @@ for($k=200;$k>=1;$k--){
                     'titlepic size未获取到'."\t".date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
                 continue;
             }else{
-                GetMyMarkImg($caijipath.$titlepicname);
-                $titlepic=$public_r['fileurl'].'fx47/'.$day.'/'.$titlepicname;
+                //GetMyMarkImg($caijipath.$titlepicname);
+                $titlepic=$public_r['fileurl'].'scm/'.$day.'/'.$titlepicname;
             }
             
         }else{
-            file_put_contents($logpath.'/./caiji_'.$classid.'.error.log',$conurl.'titlepic url未获取到'."\t".
+            /*file_put_contents($logpath.'/./caiji_'.$classid.'.error.log',$conurl.'titlepic url未获取到'."\t".
                 date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
-            continue;
+            continue;*/
+            $titlepic='';
         }
 
         $smalltext=str_replace('...','',$smalltext_match[1][$key]);
@@ -85,18 +91,25 @@ for($k=200;$k>=1;$k--){
             continue;
         }
 
-        $con=getcon($titleurl_copy);
+       
         //echo $con;
-        preg_match('/<div class="article-content">(.*?)<\/div>\s*<div class="vote">/is',$con,$newstext_match);
+        preg_match('/<div class="entry-content">(.*?)<\/div>\s*<div class="single-credit">/is',$con,$newstext_match);
         $newstext=$newstext_match[1];
+
+        $tagcon=$tag_con_match[1][$key];
+        preg_match_all('/<a\s*[^>]*>([^<]+)/is',$tagcon,$tag_match);
+        $tagstr=implode(',',$tag_match[1]);
         preg_match_all('/<img[^>]*?src="([^"]+)"[^>]*>/is',
             $newstext,$img_match);
+        //print_r($img_match);exit();
         foreach($img_match[1] as $img_key => $img){
-            if(strstr($img,'https://')!==false || strstr($img,'http://')!==false){
+            /*if(strstr($img,'https://')!==false || strstr($img,'http://')!==false){
                 $img_url=$img;
             }else{
                 $img_url=$host.$img;
-            }
+            }*/
+            $img_url='http:'.$img;
+            echo $img_url;
             $img_name=getUrlEnd($img);
             
             $picsize=getdownload($img_url,getHost($img_url),$caijipath.$img_name);
@@ -106,20 +119,19 @@ for($k=200;$k>=1;$k--){
                 FILE_APPEND);
                 $newstext=str_replace($img_match[0][$img_key],'',$newstext);
             }else{
-                GetMyMarkImg($caijipath.$img_name);
-                $caiji_img_url=$public_r['fileurl'].'fx47/'.$day.'/'.$img_name;
+                //GetMyMarkImg($caijipath.$img_name);
+                $caiji_img_url=$public_r['fileurl'].'scm/'.$day.'/'.$img_name;
                 $newstext=str_replace($img,$caiji_img_url,$newstext);
             }
             
         }
         $newstext=addslashes($newstext);
         //$newstext=addslashes($newstext_match[1]);
-
         $empire->query("insert into {$dbtbpre}ecms_news(classid,userid,username,newstime,truetime,
             lastdotime,stb,
         fstb,restb,title,ftitle,titlepic,havehtml,smalltext,keyboard,titlepic_alt,caijiurl) values
         ($classid,1,'admin',$newstime,$truetime,$lastdotime,1,1,1,'{$title}','{$title}','{$titlepic}'
-        ,1,'{$smalltext}','','{$title}','{$titleurl_copy}')");
+        ,1,'{$smalltext}','{$tagstr}','{$title}','{$titleurl_copy}')");
         $newsid=$empire->lastid();
         $titleurl=$public_r['newsurl'].$class_r[$classid]['classpath'].'/'.$newsid.'.html';
         $filename=$newsid;
@@ -129,11 +141,12 @@ for($k=200;$k>=1;$k--){
             ,lastdotime,havehtml) values(
         $newsid,$classid,1,$newstime,$truetime,$lastdotime,1)");
         $empire->query("insert into {$dbtbpre}ecms_news_data_1(id,classid,infotags,befrom,newstext) 
-            values($newsid,$classid,'','分享财经','{$newstext}')");
+            values($newsid,$classid,'{$tagstr}','双城新闻网','{$newstext}')");
         //GetHtml($classid,$newsid,'',0);
 
         file_put_contents($logpath.'/./caiji_'.$classid.'.log',"\t".$titleurl_copy."的内容采集完毕" ."\t".
             date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
         sleep(randtime());
+        //exit();
     }
 }
