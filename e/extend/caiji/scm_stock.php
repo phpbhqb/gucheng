@@ -29,8 +29,8 @@ $link=db_connect();
 $empire=new mysqlquery();
 $listurl='http://www.life-scm.com/stock/index_1.html';
 $host=getHost($listurl);
-//$classid=3;
-$classid=1;
+$classid=3;
+//$classid=1;
 for($k=200;$k>=1;$k--){
     $listurl_caiji=str_replace('index_1','index_'.$k,$listurl);
     file_put_contents($logpath.'/./caiji_'.$classid.'.log',"\t".'开始采集第'.$k.'页'."{$listurl_caiji}\t".
@@ -69,7 +69,7 @@ for($k=200;$k>=1;$k--){
                     'titlepic size未获取到'."\t".date( 'Y-m-d H:i:s')."\n",FILE_APPEND);
                 continue;
             }else{
-                //GetMyMarkImg($caijipath.$titlepicname);
+                GetMyMarkImg($caijipath.$titlepicname);
                 $titlepic=$public_r['fileurl'].'scm/'.$day.'/'.$titlepicname;
             }
             
@@ -119,7 +119,7 @@ for($k=200;$k>=1;$k--){
                 FILE_APPEND);
                 $newstext=str_replace($img_match[0][$img_key],'',$newstext);
             }else{
-                //GetMyMarkImg($caijipath.$img_name);
+                GetMyMarkImg($caijipath.$img_name);
                 $caiji_img_url=$public_r['fileurl'].'scm/'.$day.'/'.$img_name;
                 $newstext=str_replace($img,$caiji_img_url,$newstext);
             }
