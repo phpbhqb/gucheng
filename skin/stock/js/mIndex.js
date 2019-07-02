@@ -51,7 +51,7 @@ function getnewstr(){
                 $.each(response,function(i,news){
                     start ++;
                     var  titleurl=newsurl+'e/wap/show.php?id='+news.id;
-                    var newstr='<div class="newListItem box"><div class="newsImg"><a href="'+titleurl+'>"><img src="'+news.pImg+'"  alt="'+news.alt+'"></a></div><div class="newsCont boxL"><h2><a href="'+titleurl+'">'+news.title+'</a></h2><p>'+news.befrom+'</p></div></div>';
+                    var newstr='<div class="newListItem box"><div class="newsImg"><a href="'+titleurl+'>"><img src="'+news.pImg+'"  alt="'+news.alt+'" onerror="javascript:this.src='+newsurl+'skin/stock/images/list_default.jpg"></a></div><div class="newsCont boxL"><h2><a href="'+titleurl+'">'+news.title+'</a></h2><p>'+news.befrom+'</p></div></div>';
                     $('.newsList').append(newstr);
                 });
                 $(".moreNews").attr('start',start);
