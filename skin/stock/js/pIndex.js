@@ -52,7 +52,15 @@ function getnewstr(){
             if(response){
                 $.each(response,function(i,news){
                     start ++;
-                    var newstr='<div class="newListItem box"><div class="newsImg imgAll"><a href="'+news.url+'"><img src="'+news.pImg+'" width="179" height="123" alt="'+news.alt+'" onerror="javascript:this.src=\''+newsurl+'skin/stock/images/list_default.jpg'"></a></div><div class="newsCont boxL"><div class="newsTtile"><a href="'+news.url+'">'+news.title+'</a></div><div class="newsTime">'+news.timer+'</div><div class="newsTxt">'+news.cont+'</div></div>';
+                    var newstr='<div class="newListItem box"><div class="newsImg imgAll"><a href="'+news.url+'">';
+                    if(news.pImg){
+                        newstr+='<img src="'+news.pImg+'" width="179" height="123" alt="'+news.alt+'" >';
+                    }else{
+                        newstr+='<img src="'+newsurl+'skin/stock/images/list_default.jpg" width="179" height="123" alt="'+news.alt+'"';
+                    }
+                    
+
+                    newstr+='</a></div><div class="newsCont boxL"><div class="newsTtile"><a href="'+news.url+'">'+news.title+'</a></div><div class="newsTime">'+news.timer+'</div><div class="newsTxt">'+news.cont+'</div></div>';
 
                     if(news.istop==1){
                         newstr+='<div class="roofsImg" style="display: block;"><img src="'+newsurl+'skin/stock/images/roofsImg.png"></div</div>';
